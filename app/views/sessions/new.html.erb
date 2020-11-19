@@ -1,0 +1,16 @@
+<% provide(:title, "Login") %>
+<h1 class="center">Login</h1>
+<div class="row">
+    <div class="col m6 offset-m3 center">
+		<%= form_for(:session, url: login_path) do |f| %>
+
+			<div class="input-field">
+				<%= f.label :name %><br />
+				<%= f.text_field :name, class: 'validate' %>
+			</div>
+
+			<%= f.submit "Login", class: "btn btn-primary btn-block" %>
+
+		<% end %>
+	</div>
+</div>
