@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col m6 offset-m3 center">
+	<h1>Sign Up</h1>
+		<%= form_for(@user) do |f| %>
+			
+			<div class="input-field">
+				<%= f.label :name %><br />
+				<%= f.text_field :name, class: 'validate' %>
+			</div>
+
+			<%= f.submit "Create my account", class: "btn btn-primary btn-block" %>
+
+		<% end %>
+	</div>
+</div>
