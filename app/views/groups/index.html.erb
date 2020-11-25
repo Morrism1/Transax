@@ -1,0 +1,18 @@
+<div class="container">
+  <%@groups.each do |group|%>
+    <%=link_to group do %>
+      <div class="flex">
+        <div class="thumb">
+          <img src="<%= group.icon %>">
+        </div>
+        <div class="text d-flex flex-c">
+          <span class="d-flex space-b"><p><%=group.name%></p></span>
+          <span><p class=""><%= group.created_at.strftime("%m/%d/%Y")%></p></span>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+  <div class="botton-b bg-green">
+    <%= link_to 'NEW GROUP', new_group_path,class:'button' %>
+  </div>
+</div>
