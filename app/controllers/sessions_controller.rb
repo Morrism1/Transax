@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.find_by_name(params[:session][:name])
     if user
       log_in(user)
-      redirect_to root_url, notice: 'Logged in!'
+      redirect_to user_path(user), notice: 'Logged in!'
     else
       flash.now.alert = 'Name already Taken!'
       render 'new'
