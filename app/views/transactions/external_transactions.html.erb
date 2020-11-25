@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="total d-flex">
+      <p>Total Amount</p>
+      <p class="f-bold"><%=@total%>$</p>
+    </div>
+    <% @external.each do |t|%>
+      <div class="row d-flex">
+      <div class="text d-flex flex-c">
+        <span class="d-flex space-b"><p><%=t.name%></p><p><%=t.amount%> $</p></span>
+        <span><p class=""><%= t.created_at.strftime("%m/%d/%Y")%></p></span>
+      </div>
+      </div>
+    <%end%>
+    <div class="botton-b bg-green">
+      <%= link_to 'NEW TRANSACTION', new_transaction_path,class:'button' %>
+    </div>
+</div>
