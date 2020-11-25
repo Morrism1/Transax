@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
 
   def index
     @transactions = current_user.transactions.includes(:group).where.not(group_id: nil).order(created_at: :desc)
-    @total = current_user.transactions.includes.where.not(group_id: nil).sum('amount')
+    @total = current_user.transactions.where.not(group_id: nil).sum('amount')
   end
 
   def new
