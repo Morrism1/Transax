@@ -1,0 +1,20 @@
+<div class="container">
+<div class="total d-flex">
+<p>Total Amount</p>
+<p class="f-bold"><%=@total%>$</p>
+</div>
+<%@transactions.each do |t|%>
+<div class="row d-flex">
+<div class="thumb">
+<img src="<%= @group.icon %>">
+</div>
+<div class="text d-flex flex-c">
+<span class="d-flex space-b"><p><%=t.name%></p><p><%=t.amount%> $</p></span>
+<span class="d-flex space-b"><p>Author: <%=t.user.name%></p><p><%= t.created_at.strftime("%m/%d/%Y")%></p></span>
+</div>
+</div>
+<%end%>
+  <div class="botton-b bg-green">
+  <%= link_to 'NEW TRANSACTION', new_transaction_path,class:'button' %>
+  </div>
+</div>
