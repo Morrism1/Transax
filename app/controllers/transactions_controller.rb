@@ -14,8 +14,11 @@ class TransactionsController < ApplicationController
     @transaction.author_id = current_user.id
 
     if @transaction.save
-      flash[:notice] = "Transaction Successfully created..."
-      redirect transactions_path
+      if @transaction.group_id.nil?
+        redirect_to external_path, notice: 'External Transaction was successfully created.'
+      else
+        redirect_to transactions_path, notice: 'Transaction was successfully created.'
+      end
     else
       flash[:alert] = "Can you try fill the fields again"
       render :new
@@ -28,12 +31,12 @@ class TransactionsController < ApplicationController
   end
 
   def show
-    @transaction = Transaction.find(params[:id])
+    @transaction = current_user.transactions.find(params[:id])
   end
 
   private
 
   def transaction_params
-    params.require(:transaction).permit(:name, :amount)
+    params.require(:transaction).permit(:name, :amount, :group_id)
   end
 end
