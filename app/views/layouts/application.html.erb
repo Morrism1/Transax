@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class='bg-gray-200 relative h-screen overflow-x-hidden'>
+  <body class='w-full bg-gray-200 relative h-screen overflow-x-hidden'>
     <% flash.each do |type, message|%>
     <% if type == 'alert'%>
     <div class="bg-red-500">
