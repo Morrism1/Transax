@@ -1,3 +1,4 @@
+<%= render 'shared/header', text:"Transactions", path:transactions_path %>
 <div class='border-b border-r border-l'>
   <div class='px-2 pt-2 pb-2 flex items-start flex-wrap'>
   <div class="w-full md:w-2/3 pr-0 md:pr-6 mb-6">
@@ -6,7 +7,7 @@
     <p class="font-black"><%=@total%>$</p>
   </div>
   <div>
-    <div class='border-b border-r border-l flex flex text-center'>
+    <div class='border-b border-r border-l flex flex-col text-center'>
       <%@transactions.each do |t|%>
           <div class="py-6">
             <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
