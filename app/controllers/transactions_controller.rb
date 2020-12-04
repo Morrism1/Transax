@@ -39,7 +39,7 @@ class TransactionsController < ApplicationController
     all_transactions = current_user.transactions.pluck(:id)
     grouped = GroupTransaction.where(transaction_id: all_transactions).pluck(:transaction_id)
     ungrouped = all_transactions - grouped
-    @external = current_user.transactions.where(id: ungrouped).includes([:groups])
+    @external = current_user.transactions.where(id: ungrouped)
     @total = 0
     @external.each { |trans| @total += trans.amount }
   end
