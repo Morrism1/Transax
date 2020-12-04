@@ -1,4 +1,4 @@
-<%= render 'shared/header', text:"New Transax", path:transactions_path %>
+<%= render 'shared/header', text:"New Transax"%>
 <div class="container w-full max-w-md mx-auto my-6">
   <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8">
     <h2 class='text-center text-lg'>New transaction</h2>
@@ -16,11 +16,18 @@
     <fieldset>
     <div class="mb-6 w-full lg:w-2/5">
       <div class="relative">
-        <%= f.label :group_id, "Group",class:"label", class: 'label block text-sm font-medium leading-5 text-gray-700' %>
-        <%= f.select :group_id, [["select Group",nil]]+Group.all.collect {|x| [x.name, x.id]}, {}, class: "select" %>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
+        <%= f.label :group, class: 'label block text-sm font-medium leading-5 text-gray-700' %>
+        
+            <% Group.all.each do |group| %>
+              <div class="container">
+                <div class="mb-6 w-full lg:w-2/5">
+                  <div class="relative flex inline-flex items-center">
+                    <%= check_box_tag "transaction[group_ids][]", group.id, @transaction.group_ids.include?(group.id), id: dom_id(group), class:'form-checkbox h-5 w-5 text-blue-600' %>
+                  <span class='ml-2'><%=label_tag dom_id(group), group.name %></span>  
+                  </div>
+                </div>
+              </div>
+            <% end %>
       </div>
   </div>
     </fieldset>
@@ -30,3 +37,6 @@
   </div>
 </div>
 
+  <div class="field">
+   
+  </div>

@@ -1,4 +1,4 @@
-<%= render 'shared/header', text:"Transactions", path:transactions_path %>
+<%= render 'shared/header', text:"Transactions" %>
 <div class='border-b border-r border-l'>
   <div class='px-2 pt-2 pb-2 flex items-start flex-wrap'>
   <div class="w-full md:w-2/3 pr-0 md:pr-6 mb-6">
@@ -8,10 +8,10 @@
   </div>
   <div>
     <div class='border-b border-r border-l flex flex-col text-center'>
-      <%@transactions.each do |t|%>
+      <%@transaction.each do |t|%>
           <div class="py-6">
             <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
-              <img class="w-1/3 h-auto lg:h-full object-cover object-center w-auto" src="<%= t.group.icon %>"/>
+              <img class="w-1/3 h-auto lg:h-full object-cover object-center w-auto" src="<%= t.groups[0].icon %>"/>
               
               <div class="w-2/3 p-4">
                 <h1 class="text-gray-900 font-bold text-2xl"><%=t.name%></h1>
