@@ -1,15 +1,45 @@
-<header class='w-full flex flex-row justify-between  space-x-8  pr-36 py-6 h-24 self-start bg-blue-600'>
+<header class='js-nav w-full flex flex-row justify-between  space-x-8  pr-36 py-6 h-24 self-start bg-blue-600' role="navigation" arial-label="main navigation">
+<div class='flex flex-nowrap items-center justify-center lg:justify-start lg:content-center [px-4 lg:px-6'>
 <%= link_to url_for(:back) do%>
 <svg class="fill-current text-gray-50 w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
 <%end%> 
 <div>
   <h2 class='text-lg text-center font-black flex-1 mr-8 py-3 px-6 whitespace-nowrap	'><%=text%></h2>
 </div>
-
-<%= link_to path do%>
-<div>
-  <svg class="fill-current text-gray-50 w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path></svg>
+  <div class='dropdown dropdown-user-account flex  z-50 relative'>
+    <%= link_to '#!', class: 'dropdown-target no-underline flex justify-between text-gray-700 uppercase text-xs tracking-wide items-center font-semibold pt-2 pb-2 pl-3 pr-1' do%>
+      <svg class="fill-current text-gray-50 w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path></svg>        
+    <%end%> 
+  <ul class="list-none hidden dropdown-list absolute left-0 top-20 bg-blue-600 text-white rounded-b border border-gray-500 shadow">
+      <h5 class="mt-2 uppercase text-xs text-white font-normal py-2 pl-3 tracking-wide">
+                  My Stuff
+      </h5>
+      <li>
+          <%= link_to user_path(current_user.id), class: 'hover:bg-blue-700 hover:text-white text-gray-900 no-underline block py-2 px-4 flex items-center text-sm' do %>
+                    My Profile
+          <% end%>
+      </li>
+                <li>
+                  <%= link_to groups_path, class: 'hover:bg-blue-700 hover:text-white text-gray-900 no-underline block py-2 px-4 flex items-center text-sm' do %>
+                    Groups
+                  <% end%>
+                </li>
+                <li>
+                  <%= link_to transactions_path, class: 'hover:bg-blue-700 hover:text-white text-gray-900 no-underline block py-2 px-4 flex items-center text-sm' do %>
+                    Transactions
+                  <% end%>
+                </li>
+                <li>
+                  <%= link_to external_path, class: 'hover:bg-blue-700 hover:text-white text-gray-900 no-underline block py-2 px-4 flex items-center text-sm' do %>
+                    External
+                  <% end%>
+                </li>
+                <li>
+                  <%= link_to logout_path, method: :delete, class: 'hover:bg-blue-700 hover:text-white text-gray-900 no-underline block py-2 px-4 flex items-center text-sm' do %>
+                    Logout
+                  <% end%>
+                </li>
+              </ul>
+  </div>
 </div>
-
-<%end%> 
 </header>
