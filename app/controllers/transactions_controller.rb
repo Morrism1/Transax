@@ -1,8 +1,12 @@
 class TransactionsController < ApplicationController
 
+  before_action :logged_in_user
+
   def index
-    @transactions = current_user.transactions.includes(:group).where.not(group_id: nil).order(created_at: :desc)
-    @total = current_user.transactions.where.not(group_id: nil).sum('amount')
+    @transaction = current_user.transactions.includes(:groups).order(created_at: :desc)
+    @transaction = @transaction.filter { |trans| !trans.groups.empty? }
+    @total = 0
+    @transaction.each { |trans| @total += trans.amount }
   end
 
   def new
@@ -10,24 +14,34 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = current_user.transactions.build(transaction_params)
+    @transaction = current_user.transactions.build(transaction_params.except(:group_ids))
     @transaction.author_id = current_user.id
-
+    @transaction.save
+    @groupers = params[:transaction][:group_ids]
+    @groupers&.each do |grp|
+      @transaction.groups << Group.find(grp)
+    end
     if @transaction.save
-      if @transaction.group_id.nil?
-        redirect_to external_path, notice: 'External Transaction was successfully created.'
+      if Group.none? || params[:transaction][:group_ids].all?('0')
+        GroupTransaction.create(transaction_id: @transaction.id)
       else
-        redirect_to transactions_path, notice: 'Transaction was successfully created.'
+        params[:transaction][:group_ids].reject { |n| n.to_i.zero? }.each do |id|
+          GroupTransaction.create(transaction_id: @transaction.id, group_id: id.to_i)
+        end
       end
+      redirect_to transactions_path
     else
-      flash[:alert] = "Can you try fill the fields again"
       render :new
     end
   end
 
   def external_transactions
-    @external = current_user.transactions.where(group_id: nil).order(created_at: :desc)
-    @total = current_user.transactions.where(group_id: nil).sum('amount')
+    all_transactions = current_user.transactions.pluck(:id)
+    grouped = GroupTransaction.where(transaction_id: all_transactions).pluck(:transaction_id)
+    ungrouped = all_transactions - grouped
+    @external = current_user.transactions.where(id: ungrouped).includes([:groups])
+    @total = 0
+    @external.each { |trans| @total += trans.amount }
   end
 
   def show
@@ -37,6 +51,6 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.require(:transaction).permit(:name, :amount, :group_id)
+    params.require(:transaction).permit(:name, :amount)
   end
 end
