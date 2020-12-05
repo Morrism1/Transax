@@ -12,7 +12,7 @@ before_action :logged_in_user
 
   def show
     @group = Group.find(params[:id])
-    @transactions = @group.transactions.includes(:user)
+    @transactions = @group.transactions.includes([:author])
     @total = @group.transactions.sum('amount')
   end
 
