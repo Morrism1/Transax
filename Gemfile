@@ -29,9 +29,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 # my gems
+gem 'bullet'
 gem 'carrierwave'
 gem 'cloudinary'
-gem 'bullet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
