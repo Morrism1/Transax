@@ -5,5 +5,5 @@ class Group < ApplicationRecord
   has_many :group_transactions, dependent: :destroy
   has_many :transactions, through: :group_transactions, source: :deal
 
-  validates_presence_of :name, :icon
+  validates :name, presence: true, uniqueness: true
 end
