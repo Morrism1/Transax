@@ -1,6 +1,6 @@
 .input {
   @apply appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3
-   px-4 leading-tight;
+    px-4 leading-tight;
 }
 
 .input:focus {
@@ -13,7 +13,8 @@
 
 .select {
   @apply appearance-none py-3 px-4 pr-8 block w-full bg-gray-200 border border-gray-200 text-gray-700
-  rounded leading-tight;
+    rounded leading-tight;
+
   -webkit-appearance: none;
 }
 
@@ -55,8 +56,8 @@
     }
 
     li:last-of-type a {
-      border-bottom-right-radius: .25rem;
-      border-bottom-left-radius: .25rem;
+      border-bottom-right-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
     }
   }
 }
