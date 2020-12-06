@@ -39,7 +39,7 @@ RSpec.describe Group, type: :model do
       expect(@group.save).not_to be true
     end
   end
-  context 'User associations tests' do
+  context 'Group associations tests' do
     it { should belong_to(:user) }
     it { should have_many(:transactions) }
   end
