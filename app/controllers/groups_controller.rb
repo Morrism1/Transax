@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
-
-before_action :logged_in_user
+  before_action :logged_in_user
 
   def index
     @groups = Group.all.order(created_at: :desc)
@@ -19,13 +18,13 @@ before_action :logged_in_user
   def create
     @group = current_user.groups.build(group_params)
     if @group.save
-      flash[:notice] = "Group Successfully created..."
+      flash[:notice] = 'Group Successfully created...'
       redirect_to @group
     else
       render :new
     end
   end
-  
+
   def destroy; end
 
   private

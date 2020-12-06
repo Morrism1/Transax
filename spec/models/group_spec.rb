@@ -14,7 +14,7 @@ RSpec.describe Group, type: :model do
     end
 
     it 'Should be valid' do
-      @group = Group.new(name: 'Sports',icon: @icon, user_id: @user.id)
+      @group = Group.new(name: 'Sports', icon: @icon, user_id: @user.id)
       expect(@group.save).to be true
     end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Groups", type: :request do
+RSpec.describe 'Groups', type: :request do
   let(:user) { User.create(name: 'Mark') }
   it 'creates a new group' do
     visit login_path
@@ -15,6 +15,5 @@ RSpec.describe "Groups", type: :request do
     click_button 'Create'
 
     expect(page).to have_content('Sneakers')
-    
   end
 end

@@ -18,7 +18,6 @@ RSpec.describe Transaction, type: :model do
       expect(subject).not_to be_valid
     end
 
-
     it 'is invalid without an amount present' do
       subject.amount = nil
       expect(subject).not_to be_valid

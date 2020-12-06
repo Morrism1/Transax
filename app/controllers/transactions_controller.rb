@@ -1,5 +1,4 @@
 class TransactionsController < ApplicationController
-
   before_action :logged_in_user
 
   def index
@@ -13,7 +12,8 @@ class TransactionsController < ApplicationController
     @transaction = current_user.transactions.build
   end
 
-  def create
+  # rubocop:todo Metrics/PerceivedComplexity
+  def create # rubocop:todo Metrics/CyclomaticComplexity
     @transaction = current_user.transactions.build(transaction_params.except(:group_ids))
     @transaction.author_id = current_user.id
     @transaction.save
@@ -35,6 +35,7 @@ class TransactionsController < ApplicationController
       render :new
     end
   end
+  # rubocop:enable Metrics/PerceivedComplexity
 
   def external_transactions
     all_transactions = current_user.transactions.pluck(:id)
