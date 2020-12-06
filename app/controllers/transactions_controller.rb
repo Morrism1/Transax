@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
       @transaction.groups << Group.find(grp)
     end
     if @transaction.save
-      if Group.none? || params[:transaction][:group_ids].all?('0')
+      if Group.none? || params[:transaction][:group_ids].nil?
         GroupTransaction.create(transaction_id: @transaction.id)
       else
         params[:transaction][:group_ids].reject { |n| n.to_i.zero? }.each do |id|
@@ -39,7 +39,7 @@ class TransactionsController < ApplicationController
     all_transactions = current_user.transactions.pluck(:id)
     grouped = GroupTransaction.where(transaction_id: all_transactions).pluck(:transaction_id)
     ungrouped = all_transactions - grouped
-    @external = current_user.transactions.where(id: ungrouped)
+    @external = current_user.transactions.where(id: ungrouped).order(created_at: :desc)
     @total = 0
     @external.each { |trans| @total += trans.amount }
   end
