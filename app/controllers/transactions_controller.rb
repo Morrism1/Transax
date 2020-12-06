@@ -24,12 +24,13 @@ class TransactionsController < ApplicationController
     if @transaction.save
       if Group.none? || params[:transaction][:group_ids].nil?
         GroupTransaction.create(transaction_id: @transaction.id)
+        redirect_to external_path
       else
         params[:transaction][:group_ids].reject { |n| n.to_i.zero? }.each do |id|
           GroupTransaction.create(transaction_id: @transaction.id, group_id: id.to_i)
+          redirect_to transactions_path
         end
       end
-      redirect_to transactions_path
     else
       render :new
     end
