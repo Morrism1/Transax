@@ -1,13 +1,13 @@
 <header class='js-nav w-full flex flex-row justify-between  space-x-8  pr-36 py-6 h-24 self-start bg-blue-600' role="navigation" arial-label="main navigation">
 <div class='flex flex-nowrap items-center justify-center lg:justify-start lg:content-center [px-4 lg:px-6'>
-<%= link_to url_for(:back) do%>
+<%= link_to url_for(:back), class: 'relative inline-block svg-back' do%>
 <svg class="fill-current text-gray-50 w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
 <%end%> 
 <div>
   <h2 class='text-lg text-center font-black flex-1 mr-8 py-3 px-6 whitespace-nowrap	'><%=text%></h2>
 </div>
   <div class='dropdown dropdown-user-account flex  z-50 relative'>
-    <%= link_to '#!', class: 'dropdown-target no-underline flex justify-between text-gray-700 uppercase text-xs tracking-wide items-center font-semibold pt-2 pb-2 pl-3 pr-1' do%>
+    <%= link_to '#!', class: 'dropdown-target no-underline  text-gray-700 uppercase text-xs tracking-wide  font-semibold pt-2 pb-2 pl-3 pr-1 svg-back relative inline-block' do%>
       <svg class="fill-current text-gray-50 w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path></svg>        
     <%end%> 
   <ul class="list-none hidden dropdown-list absolute left-0 top-20 bg-blue-600 text-white rounded-b border border-gray-500 shadow">
