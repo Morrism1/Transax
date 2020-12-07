@@ -28,7 +28,7 @@ class TransactionsController < ApplicationController
       else
         params[:transaction][:group_ids].reject { |n| n.to_i.zero? }.each do |id|
           GroupTransaction.create(transaction_id: @transaction.id, group_id: id.to_i)
-          redirect_to transactions_path
+          redirect_to transactions_path and return
         end
       end
     else
