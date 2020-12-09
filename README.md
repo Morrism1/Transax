@@ -2,7 +2,6 @@
 
 > Transax is a transaction-tracking mobile web application for recording money spent shoping or other transaction needs you have.
 ![Screenshot 2020-12-07 002919](https://user-images.githubusercontent.com/46853433/101294994-7bfb2700-3823-11eb-8f45-af6d78c0752c.png)
-![Screenshot 2020-12-07 002551](https://user-images.githubusercontent.com/46853433/101295030-b4026a00-3823-11eb-90d3-4cf726f92b0c.png)
 
 ## Built With
 
