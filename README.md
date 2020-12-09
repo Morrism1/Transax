@@ -3,6 +3,10 @@
 > Transax is a transaction-tracking mobile web application for recording money spent shoping or other transaction needs you have.
 ![Screenshot 2020-12-07 002919](https://user-images.githubusercontent.com/46853433/101294994-7bfb2700-3823-11eb-8f45-af6d78c0752c.png)
 
+## Entity Relation Diagram (ERD)
+
+![Screenshot 2020-12-09 042518](https://user-images.githubusercontent.com/46853433/101566121-20719a80-39d7-11eb-8206-73ebff78c663.png)
+
 ## Built With
 
 * Ruby v2.7.1
