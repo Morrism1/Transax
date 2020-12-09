@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       log_in(user)
       redirect_to user_path(user), notice: 'Logged in!'
     else
-      flash.now.alert = 'Name already Taken!'
+      flash.now.alert = 'Login Failed, Try again!'
       render 'new'
     end
   end
