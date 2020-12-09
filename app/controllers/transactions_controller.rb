@@ -15,11 +15,6 @@ class TransactionsController < ApplicationController
   def create
     @transaction = current_user.transactions.build(transaction_params.except(:group_ids))
     @transaction.author_id = current_user.id
-    @transaction.save
-    @groupers = params[:transaction][:group_ids]
-    @groupers&.each do |grp|
-      @transaction.groups << Group.find(grp)
-    end
     if @transaction.save
       if Group.none? || params[:transaction][:group_ids].nil?
         GroupTransaction.create(transaction_id: @transaction.id)
