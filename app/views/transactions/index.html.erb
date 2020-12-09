@@ -1,0 +1,37 @@
+<%= render 'shared/header', text:"Transactions" %>
+<div class='border-b border-r border-l'>
+  <div class='px-2 pt-2 pb-2 flex items-start flex-wrap'>
+  <div class="w-full md:w-2/3 pr-0 md:pr-6 mb-6">
+  <div class="flex justify-between mb-6">
+    <p class='font-semibold'>Total Amount</p>
+    <p class="font-black"><%=@total%>$</p>
+  </div>
+  <div>
+    <div class='border-b border-r border-l flex flex-col text-center'>
+      <%@transaction.each do |t|%>
+          <div class="py-6">
+            <div class="flex max-w-md bg-white shadow-lg rounded-lg overflow-hidden">
+              <img class="w-1/3 h-auto lg:h-full object-cover object-center w-auto" src="<%= t.groups[0].icon %>"/>
+              
+              <div class="w-2/3 p-4">
+                <h1 class="text-gray-900 font-bold text-2xl"><%=t.name%></h1>
+                <p class="mt-2 text-gray-600 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit In odit exercitationem fuga id nam quia</p>
+                <div class="flex item-center justify-between mt-3">
+                  <h1 class="text-gray-700 font-bold text-xl"><%=t.amount%> $</h1>
+                  <span><p class="text-gray-600 font-normal text-sm inline-block"><%= t.created_at.strftime("%m/%d/%Y")%></p></span>
+                </div>
+              </div>
+            </div>
+          </div>
+      <%end%>
+    </div>
+   
+  </div>
+  
+  <div class="text-center mt-6">
+    <%= link_to 'NEW TRANSACTION', new_transaction_path,class:'btn btn-outline' %>
+  </div>
+</div>
+  </div>
+</div>
+

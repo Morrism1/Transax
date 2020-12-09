@@ -6,7 +6,14 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
+// @ts-ignore
 require("channels")
+
+import '../components/dropdown'
+
+// Tailwind CSS
+import "../stylesheets/application"
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,0 +1,29 @@
+<% provide(:title, "Login") %>
+<header class="w-full flex flex-row justify-evenly  space-x-8  pr-36 py-6 h-24 self-start bg-blue-600">
+  <%= link_to root_path do %>
+    <svg class="fill-current text-gray-50 w-12 h-12 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+  <% end %>
+	<div class="text-lg text-center text-white font-black ">LOGIN</div>
+	<div><%= link_to "Sign Up", signup_path, class:'text-white btn-small mr-2 absolute' %></div>
+</header>
+
+<div class="w-full max-w-md mx-auto my-6">
+  <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8">
+    <div class="row">
+    <div class="col m6 offset-m3 center">
+		<%= form_for(:session, url: login_path) do |f| %>
+
+			<div class="mb-6">
+				<%= f.label :name, class: 'label block text-sm font-medium leading-5 text-gray-700' %><br />
+				<%= f.text_field :name, class: 'input appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+			</div>
+      <div class='mb-6 text-center'>
+      <%= f.submit "Login", class: "btn btn-green px-24" %>
+      </div>
+			
+
+		<% end %>
+	</div>
+</div>
+  </div>
+</div>

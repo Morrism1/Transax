@@ -2,14 +2,26 @@
 <html>
   <head>
     <title>Transax</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='w-full bg-gray-200 relative h-screen overflow-x-hidden'>
+  <div class="flash-messages">
+    <% flash.each do |type, message|%>
+      <div class="<%= flash_class(type)%>">
+        <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans">
+          <%= message %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  
     <%= yield %>
   </body>
 </html>

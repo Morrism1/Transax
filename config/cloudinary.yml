@@ -1,0 +1,18 @@
+development:
+  cloud_name: morrism1
+  api_key: '346843885184692'
+  api_secret: QeIQqQg3_WHEw0FcGpJJDx_nO4s
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: morrism1
+  api_key: '346843885184692'
+  api_secret: QeIQqQg3_WHEw0FcGpJJDx_nO4s
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: morrism1
+  api_key: '346843885184692'
+  api_secret: QeIQqQg3_WHEw0FcGpJJDx_nO4s
+  enhance_image_tag: true
+  static_file_support: false

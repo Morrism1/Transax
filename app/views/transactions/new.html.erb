@@ -1,0 +1,42 @@
+<%= render 'shared/header', text:"New Transax"%>
+<div class="container w-full max-w-md mx-auto my-6">
+  <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8">
+    <h2 class='text-center text-lg'>New transaction</h2>
+    <%= form_with(model:@transaction,scope:"transaction",local:true)do |f| %>
+      <fieldset class='mb-6'>
+        <%= f.label :name, 'Name', class: 'label block text-sm font-medium leading-5 text-gray-700' %>
+        <%= f.text_field :name ,id:"name", class: 'input appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+      </fieldset>
+
+      <fieldset class='mb-6'>
+        <%= f.label :amount, 'Amount', class: 'label block text-sm font-medium leading-5 text-gray-700' %>
+        <%= f.number_field :amount,id:"amount", class: 'input appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+      </fieldset>
+
+    <fieldset>
+    <div class="mb-6 w-full lg:w-2/5">
+      <div class="relative">
+        <%= f.label :group, class: 'label block text-sm font-medium leading-5 text-gray-700' %>
+        
+            <% Group.all.each do |group| %>
+              <div class="container">
+                <div class="mb-6 w-full lg:w-2/5">
+                  <div class="relative flex inline-flex items-center">
+                    <%= check_box_tag "transaction[group_ids][]", group.id, @transaction.group_ids.include?(group.id), id: dom_id(group), class:'form-checkbox h-5 w-5 text-blue-600' %>
+                  <span class='ml-2'><%=label_tag dom_id(group), group.name %></span>  
+                  </div>
+                </div>
+              </div>
+            <% end %>
+      </div>
+  </div>
+    </fieldset>
+
+      <%= f.submit "Register",class:'btn btn-green px-24 text-center mx-6' %>
+    <% end %>
+  </div>
+</div>
+
+  <div class="field">
+   
+  </div>

@@ -1,0 +1,19 @@
+<%= render 'shared/header', text:"New Group" %>
+<div class="w-full max-w-md mx-auto my-6">
+  <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8">
+    <h1 class='text-center text-lg'>NEW GROUP</h1>
+    <%= form_with(model:@group,scope:"group",local:true)do |f| %>
+      <fieldset class='mb-6'>
+        <%= f.label :name, 'Name', class: 'label block text-sm font-medium leading-5 text-gray-700' %>
+        <%= f.text_field :name,id:"name", class: 'input appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5' %>
+      </fieldset>
+      <fieldset class='mb-6'>
+          <%= f.label :icon, 'icon', class: 'label block text-sm font-medium leading-5 text-gray-700' %>
+          <%= f.hidden_field :icon_cache %>
+          <%= f.file_field :icon,id:"icon", class: 'btn btn-white btn-small inline-flex items-center'%>
+      </fieldset>
+        <%= f.submit "Create",class:' btn btn-green px-24 text-center mx-6' %>
+    <% end %>
+  </div>
+</div>
+
