@@ -61,7 +61,8 @@ Accessing the application requires a running server. This can easily be achieved
 
 ### Run tests
 
-Transax's tests are managed by the rspec-rails gem. Running tests is as easy as entering `rspec` in the project's root directory. For more information on rspec-rails, take a look at their [GitHub repo](https://github.com/rspec/rspec-rails).
+Transax's tests are managed by the rspec-rails gem. Running tests is as easy as entering `rspec` or
+`bundle exec rspec` in the project's root directory. For more information on rspec-rails, take a look at their [GitHub repo](https://github.com/rspec/rspec-rails).
 
 ### Deployment
 
