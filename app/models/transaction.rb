@@ -5,4 +5,6 @@ class Transaction < ApplicationRecord
 
   validates_presence_of :name
   validates :amount, presence: true, numericality: { less_than: 1_000_000_000, greater_than: 0 }
+
+  scope :desc, -> { order('created_at DESC') }
 end
