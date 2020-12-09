@@ -47,7 +47,10 @@ PostgreSQL, which handles Transax's database, is listed with all the other prere
 4. To install all of the project's gems, run the following:
 `bundle install`
 
-5. To set up the project's databases, run the following:
+5. To install Javascript dependencies, you need to run the following:
+`yarn install --check-files`
+
+6. To set up the project's databases, run the following:
 `rails db:setup ; rails db:create ; rails db:migrate`
 
 **Congratulations!** Transax is now ready to roll!
