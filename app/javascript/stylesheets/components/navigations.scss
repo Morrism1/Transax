@@ -70,3 +70,15 @@
     }
   }
 }
+
+.flash-messages {
+  animation: autoHide 0s ease-out 5s forwards;
+}
+
+@keyframes autoHide {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}

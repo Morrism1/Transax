@@ -6,7 +6,7 @@ document.addEventListener("turbolinks:load", () => {
     dropDownLinks.forEach(function(dropdown) {
       dropdown.addEventListener("click", (e) => {
         const dropdownTarget = dropdown.nextElementSibling;
-        console.log(e.target.nextElementSibling)
+        // console.log(e.target.nextElementSibling)
 
         if (e.target.nextElementSibling != null) {
           // Hide the dropdown
