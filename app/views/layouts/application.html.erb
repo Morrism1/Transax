@@ -12,23 +12,16 @@
   </head>
 
   <body class='w-full bg-gray-200 relative h-screen overflow-x-hidden'>
+  <div class="flash-messages">
     <% flash.each do |type, message|%>
-    <% if type == 'alert'%>
-    <div class="bg-red-500">
-      <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans">
-        <%= message %>
-      </div>
-    </div>
-    <% end %>
-
-    <% if type == 'notice'%>
-      <div class="bg-green-500">
+      <div class="<%= flash_class(type)%>">
         <div class="container px-2 mx-auto py-4 text-white text-center font-medium font-sans">
           <%= message %>
         </div>
       </div>
     <% end %>
-  <% end %> 
+  </div>
+  
     <%= yield %>
   </body>
 </html>
